@@ -10,7 +10,9 @@ function Tab({ isSelected, onSelect, badgeCaption, children }) {
         onClick={onSelect}
       >
         {children}
-        <Badge caption={badgeCaption}></Badge>
+        {/* impostanto la prop key facciamo in modo che ogni volta che cambia il numero nel badgcaption 
+        cambiando anche la key viene ricreato e quindi l'animazione verrà rieseguito */}
+        <Badge key={badgeCaption} caption={badgeCaption}></Badge>
       </button>
       {isSelected && <motion.div layoutId='tab-indicator' className="active-tab-indicator" />}
     </li>
